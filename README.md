@@ -16,38 +16,39 @@ java -cp src sequentiel.MatrixProduct_sequentiel
 
 ## 2. Versions Parallèles avec Static Scheduling
 
+
 ### Compilation
 ```bash
-javac src/schedule/staticSchedule.java
-javac src/parallel/MatrixProduct_parallel_static.java
-javac src/parallel/CoherenceStatic.java
+javac src/schedule/staticSchedule.java -d bin
+javac -cp bin src/parallel/MatrixProduct_parallel_static.java -d bin
+javac -cp bin src/parallel/CoherenceStatic.java -d bin
 ```
 
 ### Exécution
 ```bash
 # Pour tester la version parallèle simple
-java -cp src parallel.MatrixProduct_parallel_static
+java -cp bin parallel.MatrixProduct_parallel_static
 
 # Pour tester la cohérence et les performances avec différents nombres de threads
-java -cp src parallel.CoherenceStatic
+java -cp bin parallel.CoherenceStatic
 ```
 
 ## 3. Versions Parallèles avec Self Scheduling
 
 ### Compilation
 ```bash
-javac src/schedule/selfSchedule.java
-javac src/parallel/MatrixProduct_parallel_self.java
-javac src/parallel/CoherenceSelf.java
+javac src/schedule/selfSchedule.java -d bin
+javac -cp bin src/parallel/MatrixProduct_parallel_self.java -d bin
+javac -cp bin src/parallel/CoherenceSelf.java -d bin
 ```
 
 ### Exécution
 ```bash
 # Pour tester la version parallèle simple
-java -cp src parallel.MatrixProduct_parallel_self
+java -cp bin parallel.MatrixProduct_parallel_self
 
 # Pour tester la cohérence et les performances avec différentes tailles de groupes
-java -cp src parallel.CoherenceSelf
+java -cp bin parallel.CoherenceSelf
 ```
 
 ## 4. Versions avec FJComp
@@ -55,28 +56,26 @@ java -cp src parallel.CoherenceSelf
 ### Compilation de Fibonacci.fj
 ```bash
 # Compiler avec fjcomp
-fjc src/fjcomp/Fibonacci.fj
+java -cp src/compiler.fjcomp.jar FJCompiler.FJComp src/fjcomp/Fibonacci.fj
 
 # Compiler le fichier Java généré
-javac src/fjcomp/Fibonacci.java
+javac src/fjcomp/Fibonacci.java -d bin
 ```
 
 ### Exécution de Fibonacci
 ```bash
 # Exécuter avec paramètres par défaut
-java -cp src fjcomp.Fibonacci
+java -cp bin fjcomp.Fibonacci
 
-# Exécuter en spécifiant le nombre de threads et la profondeur maximale
-java -Dfjcomp.threads=4 -Dfjcomp.maxdepth=20 -cp src fjcomp.Fibonacci
-```
 
-### Compilation et Exécution de Fibo.java
+
+### Compilation et Exécution de Fibo.java, Fibo c'est pour mesurer les performances et la cohérence
 ```bash
 # Compilation
-javac src/fjcomp/Fibo.java
+javac src/fjcomp/Fibo.java -d bin
 
 # Exécution
-java -cp src fjcomp.Fibo
+java -cp bin fjcomp.Fibo
 ```
 
 ## Notes Importantes
