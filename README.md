@@ -51,6 +51,12 @@ java -cp bin parallel.MatrixProduct_parallel_self
 java -cp bin parallel.CoherenceSelf
 ```
 
+
+## Trancer les courbes
+
+Après exécution il faut prendre les données et modifier les données de la variable sequal_time et data_self_scheduling dans le fichier hpc.ipynb. Et c'est exactement ce le fichier qu'il faut lancer avoir les courbes.
+
+
 ## 4. Versions avec FJComp
 
 ### Compilation de Fibonacci.fj
@@ -77,6 +83,10 @@ javac src/fjcomp/Fibo.java -d bin
 # Exécution
 java -cp bin fjcomp.Fibo
 ```
+
+## Trancer les courbes
+
+Après exécution il faut prendre les données et modifier les données de la variable sequal_fibo_time et data_fibo dans le fichier hpc.ipynb. Et c'est exactement ce le fichier qu'il faut lancer avoir les courbes.
 
 ## Notes Importantes
 
